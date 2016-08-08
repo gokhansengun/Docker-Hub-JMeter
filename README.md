@@ -5,7 +5,7 @@ Below steps examplify the usage of the image.
 1. Add your jmx files to the image.
 
     ```
-    FROM gsengun/jmeter:1.0
+    FROM gsengun/jmeter3.0:latest
 
     COPY DemoTest.jmx /scripts/DemoTest.jmx
     ```
