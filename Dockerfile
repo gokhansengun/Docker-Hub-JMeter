@@ -11,6 +11,8 @@ RUN unzip /apache-jmeter-3.0.zip && rm /apache-jmeter-3.0.zip && mv /apache-jmet
 ADD jdbc/postgresql-9.4.1209.jre7.jar /apache-jmeter-3.0/lib/
 ADD jdbc/sqljdbc4.jar /apache-jmeter-3.0/lib/
 
+# Change workdir to /jmeter
+
 WORKDIR /jmeter
 
 ENTRYPOINT [ "jmeter" ]
