@@ -1,4 +1,4 @@
-This image provides a JMeter 3.0 with MSSQL and PostgreSQL JDBC Drivers.
+This image provides a JMeter 3.0 with plugins, MSSQL and PostgreSQL JDBC Drivers.
 
 Below steps examplify the usage of the image.
 

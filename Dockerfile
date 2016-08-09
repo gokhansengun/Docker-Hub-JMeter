@@ -10,12 +10,10 @@ RUN unzip /apache-jmeter-3.0.zip && rm /apache-jmeter-3.0.zip && mv /apache-jmet
 COPY plugins/ /jmeter/lib/ext/
 
 # Copy MSSQL and PostgreSQL JDBC Drivers
-
 COPY jdbc/postgresql-9.4.1209.jre7.jar /jmeter/lib/
 COPY jdbc/sqljdbc4.jar /jmeter/lib/
 
 # Change workdir to /jmeter
-
 WORKDIR /jmeter
 
 ENTRYPOINT [ "jmeter" ]
