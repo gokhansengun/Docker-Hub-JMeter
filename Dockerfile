@@ -7,12 +7,12 @@ ADD http://www-us.apache.org/dist/jmeter/binaries/apache-jmeter-3.0.zip /apache-
 RUN unzip /apache-jmeter-3.0.zip && rm /apache-jmeter-3.0.zip && mv /apache-jmeter-3.0 /jmeter && ln -s /jmeter/bin/jmeter /usr/local/bin/jmeter
 
 # Copy plugins folder under ext folder
-ADD plugins/ /apache-jmeter-3.0/lib/ext/
+COPY plugins/ /jmeter/lib/ext/
 
 # Copy MSSQL and PostgreSQL JDBC Drivers
 
-ADD jdbc/postgresql-9.4.1209.jre7.jar /apache-jmeter-3.0/lib/
-ADD jdbc/sqljdbc4.jar /apache-jmeter-3.0/lib/
+COPY jdbc/postgresql-9.4.1209.jre7.jar /jmeter/lib/
+COPY jdbc/sqljdbc4.jar /jmeter/lib/
 
 # Change workdir to /jmeter
 
