@@ -16,6 +16,4 @@ COPY jdbc/sqljdbc4.jar /jmeter/lib/
 # Change workdir to /jmeter
 WORKDIR /jmeter
 
-ENTRYPOINT [ "jmeter" ]
-
-CMD [ "--help" ]
+CMD [ "jmeter", "--help" ]
