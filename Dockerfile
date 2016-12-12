@@ -2,9 +2,9 @@ FROM java:7
 
 MAINTAINER Gokhan Sengun <gokhansengun@gmail.com>
 
-ADD http://www-us.apache.org/dist/jmeter/binaries/apache-jmeter-3.0.zip /apache-jmeter-3.0.zip
+ADD http://www-us.apache.org/dist/jmeter/binaries/apache-jmeter-3.1.zip /apache-jmeter-3.1.zip
 
-RUN unzip /apache-jmeter-3.0.zip && rm /apache-jmeter-3.0.zip && mv /apache-jmeter-3.0 /jmeter && ln -s /jmeter/bin/jmeter /usr/local/bin/jmeter
+RUN unzip /apache-jmeter-3.1.zip && rm /apache-jmeter-3.1.zip && mv /apache-jmeter-3.1 /jmeter && ln -s /jmeter/bin/jmeter /usr/local/bin/jmeter
 
 # Copy plugins folder under ext folder
 COPY plugins/ /jmeter/lib/ext/
