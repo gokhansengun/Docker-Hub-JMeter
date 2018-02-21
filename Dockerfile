@@ -1,12 +1,18 @@
-FROM openjdk:7-jre
+FROM openjdk:9-jre AS build-env
 
-MAINTAINER Gokhan Sengun <gokhansengun@gmail.com>
+LABEL maintainer="Gokhan Sengun <gokhansengun@gmail.com>"
 
-ADD https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-3.1.zip /apache-jmeter-3.1.zip
-
-RUN unzip /apache-jmeter-3.1.zip && rm /apache-jmeter-3.1.zip && mv /apache-jmeter-3.1 /jmeter && ln -s /jmeter/bin/jmeter /usr/local/bin/jmeter
+ADD https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-4.0.zip /apache-jmeter.zip
+RUN unzip /apache-jmeter.zip -d / 
 
 RUN curl -L -o /usr/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod u+x /usr/bin/jq
+
+FROM openjdk:9-jre AS runtime-env
+
+COPY --from=build-env /apache-jmeter-4.0 /jmeter
+COPY --from=build-env /usr/bin/jq /usr/bin/jq
+
+RUN ln -s /jmeter/bin/jmeter /usr/local/bin/jmeter
 
 # Copy plugins folder under ext folder
 COPY plugins/ /jmeter/lib/ext/
