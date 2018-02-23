@@ -1,4 +1,4 @@
-FROM openjdk:9-jre AS build-env
+FROM openjdk:8-jre AS build-env
 
 LABEL maintainer="Gokhan Sengun <gokhansengun@gmail.com>"
 
@@ -7,7 +7,7 @@ RUN unzip /apache-jmeter.zip -d /
 
 RUN curl -L -o /usr/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod u+x /usr/bin/jq
 
-FROM openjdk:9-jre AS runtime-env
+FROM openjdk:8-jre AS runtime-env
 
 COPY --from=build-env /apache-jmeter-4.0 /jmeter
 COPY --from=build-env /usr/bin/jq /usr/bin/jq
