@@ -9,7 +9,7 @@ RUN curl -L -o /usr/bin/jq https://github.com/stedolan/jq/releases/download/jq-1
 
 FROM openjdk:8-jre AS runtime-env
 
-COPY --from=build-env /apache-jmeter-5.0 /jmeter
+COPY --from=build-env /apache-jmeter-5.4.1 /jmeter
 COPY --from=build-env /usr/bin/jq /usr/bin/jq
 
 RUN ln -s /jmeter/bin/jmeter /usr/local/bin/jmeter
