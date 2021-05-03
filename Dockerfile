@@ -2,7 +2,7 @@ FROM openjdk:8-jre AS build-env
 
 LABEL maintainer="Gokhan Sengun <gokhansengun@gmail.com>"
 
-ADD https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.0.zip /apache-jmeter.zip
+ADD https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.zip /apache-jmeter.zip
 RUN unzip /apache-jmeter.zip -d / 
 
 RUN curl -L -o /usr/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod u+x /usr/bin/jq
