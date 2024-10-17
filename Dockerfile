@@ -7,7 +7,7 @@ RUN unzip /apache-jmeter.zip -d /
 
 RUN curl -L -o /usr/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod u+x /usr/bin/jq
 
-FROM openjdk:21-jdk-slim-bookworm AS runtime-env
+FROM openjdk:21-jdk-bookworm AS runtime-env
 
 COPY --from=build-env /apache-jmeter-5.6.3 /jmeter
 COPY --from=build-env /usr/bin/jq /usr/bin/jq
